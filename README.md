@@ -9,7 +9,7 @@ manager.
 Usage
 -----
 
-Go to [lastpass.com] and sign in. Next click on your username in the top-right
+Go to [lastpass.com](lastpass.com) and sign in. Next click on your username in the top-right
 corner. In the drop-down meny that appears, click "Export". After filling in
 your details again, copy the text and save it somewhere on your disk. Make sure
 you copy the whole thing, and resist the temptation to "Save Page As" - the
@@ -17,11 +17,9 @@ script doesn't like HTML.
 
 Now, [download](https://raw.github.com/asayers/lastpass-importer/master/lastpass_importer.rb) the importer script and make it executable (`chmod +x lastpass_importer.rb`). Fire up a terminal and run the importer script, passing the
 file you saved as an argument. It sould look something like this:
-```bash
-./lastpass_importer.rb path/to/passwords_file
-```
+`./lastpass_importer.rb path/to/passwords_file`
 
-And that's it! If you're having any problems, please [contact me](mailto: alex.sayers@gmail.com).
+And that's it! If you're having any problems, please [contact me](mailto:alex.sayers@gmail.com) or [post an issue](https://github.com/asayers/lastpass-importer/issues).
 
 Licence
 -------
