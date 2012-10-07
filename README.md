@@ -10,24 +10,27 @@ LastPass works great in the browser, but sometimes you want to be able securely
 store information and access it offline. Pass stores its records in
 GPG-encrypted files on your local disk, which makes searching and organising
 them easy. You can even keep it all under version control and sync to other
-computers! The whole affair is pleasingly UNIX-y.
+computers! The whole affair is reassuringly UNIX-y.
 
 Usage
 -----
 
-Go to [lastpass.com](lastpass.com) and sign in. Next click on your username in the top-right
-corner. In the drop-down meny that appears, click "Export". After filling in
-your details again, copy the text and save it somewhere on your disk. Make sure
-you copy the whole thing, and resist the temptation to "Save Page As" - the
-script doesn't like HTML.
+Go to [lastpass.com](lastpass.com) and sign in. Next click on your username in
+the top-right corner. In the drop-down meny that appears, click "Export". After
+filling in your details again, copy the text and save it somewhere on your
+disk. Make sure you copy the whole thing, and resist the temptation to "Save
+Page As" - the script doesn't like HTML.
 
-Now, [download](https://raw.github.com/asayers/lastpass-importer/master/lastpass_importer.rb) the importer script and make it executable (`chmod +x lastpass_importer.rb`). Fire up a terminal and run the importer script, passing the
-file you saved as an argument. It should look something like this:
+Now, [download](https://raw.github.com/asayers/lastpass-importer/master/lastpass_importer.rb)
+the importer script and make it executable (`chmod +x lastpass_importer.rb`).
+Fire up a terminal and run the script, passing the file you saved as an
+argument. It should look something like this:
 ```
 ./lastpass_importer.rb path/to/passwords_file
 ```
 
-And that's it! If you're having any problems, please [contact me](mailto:alex.sayers@gmail.com) or [post an issue](https://github.com/asayers/lastpass-importer/issues).
+And that's it! If you're having any problems, please [contact me](mailto:alex.sayers@gmail.com)
+or [post an issue](https://github.com/asayers/lastpass-importer/issues).
 
 Licence
 -------
