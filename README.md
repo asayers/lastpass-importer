@@ -9,7 +9,7 @@ manager.
 LastPass works great in the browser, but sometimes you want to be able securely
 store information and access it offline. Pass stores its records in
 GPG-encrypted files on your local disk, which makes searching and organising
-them easy. You can even keep them under version control and sync them to other
+them easy. You can even keep it all under version control and sync to other
 computers! The whole affair is pleasingly UNIX-y.
 
 Usage
@@ -23,9 +23,9 @@ script doesn't like HTML.
 
 Now, [download](https://raw.github.com/asayers/lastpass-importer/master/lastpass_importer.rb) the importer script and make it executable (`chmod +x lastpass_importer.rb`). Fire up a terminal and run the importer script, passing the
 file you saved as an argument. It sould look something like this:
-``
+```
 ./lastpass_importer.rb path/to/passwords_file
-``
+```
 
 And that's it! If you're having any problems, please [contact me](mailto:alex.sayers@gmail.com) or [post an issue](https://github.com/asayers/lastpass-importer/issues).
 
