@@ -22,7 +22,7 @@ you copy the whole thing, and resist the temptation to "Save Page As" - the
 script doesn't like HTML.
 
 Now, [download](https://raw.github.com/asayers/lastpass-importer/master/lastpass_importer.rb) the importer script and make it executable (`chmod +x lastpass_importer.rb`). Fire up a terminal and run the importer script, passing the
-file you saved as an argument. It sould look something like this:
+file you saved as an argument. It should look something like this:
 ```
 ./lastpass_importer.rb path/to/passwords_file
 ```
