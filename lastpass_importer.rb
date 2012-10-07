@@ -9,7 +9,7 @@
 # Set this variable to place all uncategorised records into a particular group
 DEFAULT_GROUP = ""
 
-class Note
+class Record
   def initialize name, url, username, password, extra, grouping, fav
     @name, @url, @username, @password, @extra, @grouping, @fav = name, url, username, password, extra, grouping, fav
   end
@@ -64,8 +64,8 @@ rescue
   exit 1
 end
 
-# Parse records and create Note objects
-notes = []
+# Parse records and create Record objects
+records = []
 entries.each do |e|
   args = e.split(",")
   url = args.shift
@@ -77,23 +77,23 @@ entries.each do |e|
   name = args.pop
   extra = args.join(",")[1...-1]
   
-  notes << Note.new(name, url, username, password, extra, grouping, fav)
+  records << Record.new(name, url, username, password, extra, grouping, fav)
 end
-puts "Records parsed: #{notes.length}"
+puts "Records parsed: #{records.length}"
 
 successful = 0
 errors = []
-notes.each do |n|
-  print "Creating record #{n.name}..."
-  IO.popen("pass insert -m '#{n.name}' > /dev/null", 'w') do |io|
-    io.puts n
+records.each do |r|
+  print "Creating record #{r.name}..."
+  IO.popen("pass insert -m '#{r.name}' > /dev/null", 'w') do |io|
+    io.puts r
   end
   if $? == 0
     puts " done!"
     successful += 1
   else
     puts " error!"
-    errors << n
+    errors << r
   end
 end
 puts "#{successful} records successfully imported!"
@@ -101,5 +101,5 @@ puts "#{successful} records successfully imported!"
 if errors
   puts "There were #{errors.length} errors:"
   errors.each { |e| print e.name + (e == errors.last ? ".\n" : ", ")}
-  puts "These probably occurred because there were multiple entries with the same name."
+  puts "These probably occurred because an identically-named record already existed, or because there were multiple entries with the same name in the csv file."
 end
