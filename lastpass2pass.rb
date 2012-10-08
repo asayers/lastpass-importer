@@ -20,8 +20,30 @@
 #
 #$ ruby lastpass2pass.rb path/to/passwords_file
 
-# Set this variable to place all uncategorised records into a particular group
-DEFAULT_GROUP = ""
+# Parse flags
+require 'optparse'
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options] filename"
+
+  FORCE = false
+  opts.on("-f", "--force", "Overwrite existing records") { FORCE = true }
+  DEFAULT_GROUP = ""
+  opts.on("-d", "--default GROUP", "Place uncategorised records into GROUP") { |group| DEFAULT_GROUP = group }
+  opts.on("-h", "--help", "Display this screen") { puts opts; exit }
+
+  opts.parse!
+end
+
+# Check for a filename
+if ARGV.empty?
+  puts optparse
+  exit 0
+end
+
+# Get filename of csv file
+filename = ARGV.join(" ")
+puts "Reading '#{filename}'..."
+
 
 class Record
   def initialize name, url, username, password, extra, grouping, fav
@@ -47,16 +69,6 @@ class Record
     return s
   end
 end
-
-# Check for a filename
-if ARGV.empty?
-  puts "Usage: #{$0} <file>      import records from specified file"
-  exit 0
-end
-
-# Get filename of csv file
-filename = ARGV.join(" ")
-puts "Reading '#{filename}'..."
 
 # Extract individual records
 entries = []
@@ -99,7 +111,7 @@ successful = 0
 errors = []
 records.each do |r|
   print "Creating record #{r.name}..."
-  IO.popen("pass insert -m '#{r.name}' > /dev/null", 'w') do |io|
+  IO.popen("pass insert -m#{"f" if FORCE} '#{r.name}' > /dev/null", 'w') do |io|
     io.puts r
   end
   if $? == 0
