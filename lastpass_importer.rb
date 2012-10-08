@@ -1,13 +1,6 @@
-#! /usr/bin/env ruby
-#
-# LastPass Importer
-# by Alex Sayers (github.com/asayers)
-#
-# Reads CSV files exported from LastPass and imports them into Pass (http://zx2c4.com/projects/password-store/)
-#
-# Copyright (c) 2012, Alex Sayers
-# All rights reserved.
-# 
+#!/usr/bin/env ruby
+
+# Copyright (C) Alex Sayers <alex.sayers@gmail.com>. All Rights Reserved. 
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met: 
 # 
@@ -27,6 +20,23 @@
 # ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# LastPass Importer
+#
+# Reads CSV files exported from LastPass and imports them into pass.
+
+# Usage:
+#
+# Go to lastpass.com and sign in. Next click on your username in the top-right
+# corner. In the drop-down meny that appears, click "Export". After filling in
+# your details again, copy the text and save it somewhere on your disk. Make sure
+# you copy the whole thing, and resist the temptation to "Save Page As" - the
+# script doesn't like HTML.
+#
+# Fire up a terminal and run the script, passing the file you saved as an argument.
+# It should look something like this:
+#
+#$ ruby lastpass2pass.rb path/to/passwords_file
 
 # Set this variable to place all uncategorised records into a particular group
 DEFAULT_GROUP = ""
