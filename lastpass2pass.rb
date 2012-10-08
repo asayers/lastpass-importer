@@ -50,7 +50,7 @@ end
 
 # Check for a filename
 if ARGV.empty?
-  puts "Usage: lastpass_importer.rb <file>      import records from specified file"
+  puts "Usage: #{$0} <file>      import records from specified file"
   exit 0
 end
 
